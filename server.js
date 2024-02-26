@@ -6,19 +6,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 
-// Habilita o CORS para todas as origens
 app.use(cors());
-
-// O resto do seu código de servidor...
 
 app.use(bodyParser.json());
 
-const users = []; // Simulação de banco de dados de usuários
+const users = [];
 
 app.post('/register', (req, res) => {
     const { email, password } = req.body;
     const user = { email, password };
-    users.push(user); // Simples "banco de dados" em memória
+    users.push(user);
     res.status(201).send({ message: "User registered successfully" });
 });
 
